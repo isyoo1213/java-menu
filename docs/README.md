@@ -23,7 +23,7 @@
 
 ### Constants
 1. MenuConstants
-- [ ] 이름을 통해 메뉴가 존재하는지 반환
+- [x] 이름을 통해 메뉴가 존재하는지 반환
 2. ExceptionMessages
 3. Days
 

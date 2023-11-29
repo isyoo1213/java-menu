@@ -20,13 +20,17 @@ public enum MenuConstants {
                     .collect(Collectors.toMap(MenuConstants::categoryNumber, Function.identity())));
 
     private final int categoryNumber;
-
     private final String categoryName;
     private final List<String> menus;
+
     MenuConstants(int categoryNumber, String categoryName, List<String> menus) {
         this.categoryNumber = categoryNumber;
         this.categoryName = categoryName;
         this.menus = menus;
+    }
+
+    public static boolean isExistingMenu(String menuName) {
+        return ALL_MENUS.contains(menuName);
     }
 
     private int categoryNumber() {
