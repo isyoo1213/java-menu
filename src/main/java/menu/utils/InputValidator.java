@@ -2,18 +2,43 @@ package menu.utils;
 
 import menu.constants.ExceptionMessages;
 
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class InputValidator {
+    private static final String SPACING_STRING = " ";
+    private static final String EMPTY_STRING = "";
+    private static final String COMMA_SEPARATOR = ",";
 
     public String preprocess(String input) {
         if (isNull(input)) {
             ExceptionMessages.NULL_INPUT.throwException();
         }
-        removeSpacing(input);
-        return input;
+        return removeSpacing(input);
     }
 
-    private void removeSpacing(String input) {
-        input.replaceAll(" ", "");
+    private String removeSpacing(String input) {
+        return input.replaceAll(SPACING_STRING, EMPTY_STRING);
+    }
+
+    private List<String> convertToCoachNames(String coachNames) {
+        if (isEmpty(coachNames)) {
+            ExceptionMessages.EMPTY_INPUT.throwException();
+        }
+        if (isWrongSeparator(coachNames)) {
+            ExceptionMessages.WRONG_NAMES_FORMAT.throwException();
+        }
+        return Stream.of(coachNames.split(COMMA_SEPARATOR))
+                .collect(Collectors.toList());
+    }
+
+    private boolean isWrongSeparator(String coachNames) {
+        return !coachNames.contains(COMMA_SEPARATOR);
+    }
+
+    private boolean isEmpty(String coachNames) {
+        return coachNames.isEmpty();
     }
 
     private boolean isNull(String input) {
