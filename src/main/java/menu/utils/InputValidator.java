@@ -10,6 +10,8 @@ public class InputValidator {
     private static final String SPACING_STRING = " ";
     private static final String EMPTY_STRING = "";
     private static final String COMMA_SEPARATOR = ",";
+    private static final int MINIMUM_COACH_AMOUNT = 2;
+    private static final int MAXIMUM_COACH_AMOUNT = 5;
 
     public String preprocess(String input) {
         if (isNull(input)) {
@@ -29,8 +31,16 @@ public class InputValidator {
         if (isWrongSeparator(coachNames)) {
             ExceptionMessages.WRONG_NAMES_FORMAT.throwException();
         }
-        return Stream.of(coachNames.split(COMMA_SEPARATOR))
+        List<String> convertedCoachNames = Stream.of(coachNames.split(COMMA_SEPARATOR))
                 .collect(Collectors.toList());
+        if (isWrongCoachNamesAmount(convertedCoachNames)) {
+            ExceptionMessages.WRONG_COACHES_AMOUNT.throwException();
+        }
+        return convertedCoachNames;
+    }
+
+    private boolean isWrongCoachNamesAmount(List<String> convertedCoachNames) {
+        return convertedCoachNames.size() < MINIMUM_COACH_AMOUNT || convertedCoachNames.size() > MAXIMUM_COACH_AMOUNT;
     }
 
     private boolean isWrongSeparator(String coachNames) {
