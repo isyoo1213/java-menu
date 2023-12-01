@@ -24,7 +24,7 @@ public class InputValidator {
         return input.replaceAll(SPACING_STRING, EMPTY_STRING);
     }
 
-    private List<String> convertToCoachNames(String coachNames) {
+    public List<String> convertToCoachNames(String coachNames) {
         if (isEmpty(coachNames)) {
             ExceptionMessages.EMPTY_INPUT.throwException();
         }
@@ -37,6 +37,14 @@ public class InputValidator {
             ExceptionMessages.WRONG_COACHES_AMOUNT.throwException();
         }
         return convertedCoachNames;
+    }
+
+    public List<String> convertToHateMenus(String hateMenus) {
+        if (hateMenus.isEmpty()) {
+            return List.of(hateMenus);
+        }
+        return Stream.of(hateMenus.split(COMMA_SEPARATOR))
+                .collect(Collectors.toList());
     }
 
     private boolean isWrongCoachNamesAmount(List<String> convertedCoachNames) {
