@@ -43,7 +43,7 @@ public class InputValidator {
     }
 
     private boolean isDuplicatedCoachNames(List<String> convertedCoachNames) {
-        return Stream.of(convertedCoachNames)
+        return convertedCoachNames.stream()
                 .distinct()
                 .count() != convertedCoachNames.size();
     }
