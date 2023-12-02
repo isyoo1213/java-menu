@@ -36,7 +36,16 @@ public class InputValidator {
         if (isWrongCoachNamesAmount(convertedCoachNames)) {
             ExceptionMessages.WRONG_COACHES_AMOUNT.throwException();
         }
+        if (isDuplicatedCoachNames(convertedCoachNames)) {
+            ExceptionMessages.DUPLICATED_COACH_NAMES.throwException();
+        }
         return convertedCoachNames;
+    }
+
+    private boolean isDuplicatedCoachNames(List<String> convertedCoachNames) {
+        return Stream.of(convertedCoachNames)
+                .distinct()
+                .count() != convertedCoachNames.size();
     }
 
     public List<String> convertToHateMenus(String hateMenus) {
