@@ -25,6 +25,9 @@ public class InputValidator {
     }
 
     public List<String> convertToCoachNames(String coachNames) {
+        if (coachNames.isEmpty()) {
+            ExceptionMessages.EMPTY_INPUT.throwException();
+        }
         if (isEmpty(coachNames)) {
             ExceptionMessages.EMPTY_INPUT.throwException();
         }
@@ -50,7 +53,7 @@ public class InputValidator {
 
     public List<String> convertToHateMenus(String hateMenus) {
         if (hateMenus.isEmpty()) {
-            return List.of(hateMenus);
+            return List.of();
         }
         return Stream.of(hateMenus.split(COMMA_SEPARATOR))
                 .collect(Collectors.toList());
