@@ -3,7 +3,7 @@ package menu.constants;
 public enum ExceptionMessages {
     NULL_INPUT("null은 입력할 수 없습니다."),
     EMPTY_INPUT("값을 입력해주세요."),
-    WRONG_NAMES_FORMAT("구분자는 쉼표(,)를 사용하고, 이름은 2~4글자로 입력해주세요."),
+    WRONG_NAMES_FORMAT("코치는 최소 2명으로, 구분자는 쉼표(,)를 사용해주세요."),
     WRONG_NAMES_LENGTH("이름은 2~4글자로 입력해주세요."),
     WRONG_COACHES_AMOUNT("코치는 2~5명으로 입력해주세요."),
     DUPLICATED_COACH_NAMES("중복된 코치는 입력할 수 없습니다."),
