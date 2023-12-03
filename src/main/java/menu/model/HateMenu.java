@@ -14,13 +14,14 @@ public class HateMenu {
     }
 
     private void validate(List<String> hateMenus) {
-        if (hateMenus.isEmpty()) {
-            return;
+        boolean isNonHateMenus = false;
+        if (hateMenus.size() == 0) {
+            isNonHateMenus = true;
         }
-        if (isDuplicated(hateMenus)) {
+        if (!isNonHateMenus && isDuplicated(hateMenus)) {
             ExceptionMessages.DUPLICATED_MENUS.throwException();
         }
-        if (isWrongMenus(hateMenus)) {
+        if (!isNonHateMenus && isWrongMenus(hateMenus)) {
             ExceptionMessages.NON_EXISTING_MENUS.throwException();
         }
     }
@@ -38,6 +39,6 @@ public class HateMenu {
     private boolean isDuplicated(List<String> hateMenus) {
         return hateMenus.stream()
                 .distinct()
-                .count() != this.hateMenus.size();
+                .count() != hateMenus.size();
     }
 }
