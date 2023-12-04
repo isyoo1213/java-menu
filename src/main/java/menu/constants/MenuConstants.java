@@ -34,6 +34,10 @@ public enum MenuConstants {
         return ALL_MENUS.contains(menuName);
     }
 
+    public static MenuConstants getCategoryByNumber(int categoryNumber) {
+        return MenuConstants.CATEGORY_BY_NUMBER.get(categoryNumber);
+    }
+
     private int categoryNumber() {
         return categoryNumber;
     }

@@ -24,6 +24,7 @@
 ### Constants
 1. MenuConstants
 - [x] 이름을 통해 메뉴가 존재하는지 반환
+- [x] 번호에 따른 카테고리 반환
 2. ExceptionMessages
 3. Days
 
