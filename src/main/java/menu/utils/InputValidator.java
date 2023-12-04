@@ -25,9 +25,6 @@ public class InputValidator {
     }
 
     public List<String> convertToCoachNames(String coachNames) {
-        if (coachNames.isEmpty()) {
-            ExceptionMessages.EMPTY_INPUT.throwException();
-        }
         if (isEmpty(coachNames)) {
             ExceptionMessages.EMPTY_INPUT.throwException();
         }
