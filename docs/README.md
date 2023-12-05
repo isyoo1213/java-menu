@@ -42,6 +42,7 @@
 3. HateMenus
 - [x] 못먹는 메뉴 저장
   - [x] 유효성 검사
+- [x] 메뉴가 포함되어있는지 반환
 
 ### View
 1. InputView

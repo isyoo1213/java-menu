@@ -41,4 +41,8 @@ public class HateMenu {
                 .distinct()
                 .count() != hateMenus.size();
     }
+
+    public boolean hasMenu(String menuName) {
+        return hateMenus.contains(menuName);
+    }
 }
