@@ -38,6 +38,10 @@ public enum MenuConstants {
         return MenuConstants.CATEGORY_BY_NUMBER.get(categoryNumber);
     }
 
+    public List<String> getMenus() {
+        return menus;
+    }
+
     private int categoryNumber() {
         return categoryNumber;
     }
