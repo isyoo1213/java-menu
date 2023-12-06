@@ -11,7 +11,8 @@ public class Coaches {
         coaches.put(newCoach, hateMenu);
     }
 
-    public HateMenu provideCoachHateMenu(Coach coach) {
-        return coaches.get(coach);
+
+    public Map<Coach, HateMenu> provideCoachesInfo() {
+        return Map.copyOf(coaches);
     }
 }
