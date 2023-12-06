@@ -1,5 +1,6 @@
 package menu.service;
 
+import menu.constants.MenuConstants;
 import menu.model.Coach;
 import menu.model.Coaches;
 import menu.model.HateMenu;
@@ -28,5 +29,9 @@ public class MenuRecService {
             coaches.addCoach(validCoaches.get(i), validHateMenus.get(i));
         }
         return coaches;
+    }
+
+    public MenuConstants selectCategory(int categoryNumber) {
+        return MenuConstants.getCategoryByNumber(categoryNumber);
     }
 }
